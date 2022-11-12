@@ -1,15 +1,18 @@
 import playersHealth from "../game.js";
 
 test('sort array test', () => {
-    const heroChanges = [
+    const items = [
+        {name: 'мечник', health: 10},
+        {name: 'маг', health: 100},
+        {name: 'лучник', health: 80},
+    ]
+
+    const expected = [
         {name: 'маг', health: 100},
         {name: 'лучник', health: 80},
         {name: 'мечник', health: 10},
     ]
 
-    heroChanges.forEach((item) => {
-        const itemStatus = item.health;
-        const result = playersHealth(heroChanges);
-        expect(result).toEqual(itemStatus);
-    })
+    const received = playersHealth(items);
+    expect(received).toEqual(expected);
 })
